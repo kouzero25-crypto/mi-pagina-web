@@ -3,12 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi página web</title>
+    <title>Registro Web</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #1a73e8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1557b0;
+        }
+
+        #mensaje {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>¡Hola! 👋</h1>
-    <p>Esta es mi primera página web.</p>
+<div class="contenedor">
+
+    <h1>Registro de información</h1>
+
+    <form id="formulario">
+
+        <label>Nombre</label>
+        <input type="text" id="nombre" required>
+
+        <label>DNI</label>
+        <input type="text" id="dni" required>
+
+        <label>Observación</label>
+        <textarea id="observacion"></textarea>
+
+        <button type="submit">GUARDAR</button>
+
+    </form>
+
+    <div id="mensaje"></div>
+
+</div>
+
+<script>
+
+const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzp8-XfQsyRZFBcZ20Muin_KIctPCcQj3U2ahPakjAvYuHiGYUvpXXfmnQousvQsuvw/exec";
+
+document.getElementById("formulario").addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const datos = {
+        nombre: document.getElementById("nombre").value,
+        dni: document.getElementById("dni").value,
+        observacion: document.getElementById("observacion").value
+    };
+
+    const mensaje = document.getElementById("mensaje");
+
+    mensaje.textContent = "Guardando...";
+
+    try {
+
+        await fetch(URL_APPS_SCRIPT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(datos)
+        });
+
+        mensaje.textContent = "✅ Datos enviados correctamente.";
+
+        document.getElementById("formulario").reset();
+
+    } catch (error) {
+
+        mensaje.textContent = "❌ Ocurrió un error al enviar los datos.";
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
