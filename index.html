@@ -12,65 +12,104 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
             margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
             min-height: 100vh;
-            background: #0f0f0f;
+
+            background: #1f2021;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             color: #e8eaed;
-            font-family: Arial, Helvetica, sans-serif;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* CUADRO PRINCIPAL */
 
-        .contenedor {
+        /* =========================
+           CONTENEDOR PRINCIPAL
+        ========================= */
+
+        .pagina {
             width: 100%;
-            max-width: 450px;
+            max-width: 920px;
+        }
+
+
+        .tarjeta {
+            width: 100%;
+            min-height: 420px;
 
             background: #0f0f0f;
 
-            border: 1px solid #5f6368;
             border-radius: 28px;
 
-            padding: 45px 40px 40px;
+            padding: 40px 36px;
 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            column-gap: 70px;
         }
 
 
-        /* LOGO */
+        /* =========================
+           COLUMNA IZQUIERDA
+        ========================= */
+
+        .izquierda {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+        }
+
+
+        /* LOGO PROPIO */
 
         .logo {
-            width: 58px;
-            height: 58px;
+            width: 52px;
+            height: 52px;
 
-            margin: 0 auto 28px;
+            margin-bottom: 30px;
 
             border-radius: 50%;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
-            font-size: 30px;
-            font-weight: bold;
+            font-size: 25px;
 
-            background: linear-gradient(
-                135deg,
-                #4285f4,
-                #34a853,
-                #fbbc05,
-                #ea4335
-            );
+            font-weight: bold;
 
             color: white;
 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            background:
+                linear-gradient(
+                    135deg,
+                    #4285f4 0%,
+                    #34a853 35%,
+                    #fbbc05 65%,
+                    #ea4335 100%
+                );
         }
 
 
@@ -79,146 +118,249 @@
         h1 {
             margin: 0;
 
-            text-align: center;
+            font-size: 36px;
 
-            font-size: 30px;
+            line-height: 1.2;
+
             font-weight: 400;
 
-            color: #f1f3f4;
-        }
-
-
-        /* SUBTITULO */
-
-        .subtitulo {
-            text-align: center;
-
-            margin-top: 12px;
-            margin-bottom: 35px;
-
-            color: #bdc1c6;
-
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-
-        /* ETIQUETAS */
-
-        label {
-            display: block;
-
-            margin-bottom: 8px;
+            letter-spacing: -0.5px;
 
             color: #e8eaed;
-
-            font-size: 15px;
         }
 
 
-        /* CAMPOS */
+        /* TEXTO */
+
+        .descripcion {
+            margin-top: 18px;
+
+            font-size: 16px;
+
+            line-height: 1.5;
+
+            color: #bdc1c6;
+        }
+
+
+        /* =========================
+           COLUMNA DERECHA
+        ========================= */
+
+        .derecha {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        /* =========================
+           CAMPOS
+        ========================= */
 
         .campo {
-            margin-bottom: 23px;
+            position: relative;
+
+            margin-bottom: 24px;
         }
+
 
         input {
             width: 100%;
 
-            padding: 16px;
+            height: 56px;
 
-            background: #0f0f0f;
+            padding: 15px;
 
-            border: 1px solid #9aa0a6;
-            border-radius: 6px;
+            border-radius: 5px;
+
+            border: 1px solid #8a8d91;
+
+            background: transparent;
 
             color: #e8eaed;
 
             font-size: 16px;
 
-            transition: 0.2s;
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
         }
 
-        input::placeholder {
-            color: #9aa0a6;
-        }
 
         input:hover {
             border-color: #bdc1c6;
         }
 
-        input:focus {
-            outline: none;
 
+        input:focus {
             border: 2px solid #8ab4f8;
 
-            padding: 15px;
+            padding: 14px;
 
-            box-shadow: 0 0 0 1px rgba(138,180,248,0.1);
+            box-shadow:
+                0 0 0 1px rgba(138, 180, 248, 0.08);
         }
 
 
-        /* ENLACE */
+        input::placeholder {
+            color: transparent;
+        }
 
-        .enlace {
+
+        /* LABEL FLOTANTE */
+
+        .campo label {
+            position: absolute;
+
+            left: 13px;
+
+            top: 18px;
+
+            padding: 0 5px;
+
+            background: #0f0f0f;
+
+            color: #9aa0a6;
+
+            font-size: 16px;
+
+            pointer-events: none;
+
+            transition:
+                top 0.15s,
+                font-size 0.15s,
+                color 0.15s;
+        }
+
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -8px;
+
+            font-size: 12px;
+
+            color: #8ab4f8;
+        }
+
+
+        /* =========================
+           OLVIDASTE CONTRASEÑA
+        ========================= */
+
+        .recuperar {
             display: inline-block;
 
-            margin-top: 3px;
+            margin-top: -7px;
 
             color: #8ab4f8;
 
-            font-size: 14px;
-            font-weight: bold;
-
             text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
 
             cursor: pointer;
         }
 
-        .enlace:hover {
+
+        .recuperar:hover {
             text-decoration: underline;
         }
 
 
-        /* BOTÓN */
+        /* =========================
+           PARTE INFERIOR
+        ========================= */
+
+        .acciones {
+            margin-top: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 28px;
+        }
+
+
+        .crear {
+            color: #8ab4f8;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        .crear:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           BOTÓN
+        ========================= */
 
         button {
-            width: 100%;
-
-            margin-top: 30px;
-
-            padding: 14px 20px;
-
             border: none;
+
             border-radius: 24px;
 
-            background: #8ab4f8;
+            padding: 13px 25px;
+
+            min-width: 108px;
+
+            background: #a8c7fa;
 
             color: #202124;
 
-            font-size: 15px;
+            font-size: 14px;
+
             font-weight: bold;
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition:
+                background 0.2s,
+                transform 0.1s;
         }
+
 
         button:hover {
-            background: #aecbfa;
+            background: #c1d6fa;
         }
+
 
         button:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
 
-        /* MENSAJE */
+        button:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           MENSAJE
+        ========================= */
 
         #mensaje {
-            text-align: center;
-
             margin-top: 22px;
+
+            min-height: 20px;
 
             font-size: 14px;
 
@@ -226,40 +368,138 @@
         }
 
 
-        /* PIE */
+        /* =========================
+           PIE
+        ========================= */
 
         .pie {
-            margin-top: 32px;
+            display: flex;
 
-            text-align: center;
+            justify-content: space-between;
 
-            color: #9aa0a6;
+            align-items: center;
 
-            font-size: 13px;
+            padding: 20px 16px 0;
+
+            color: #bdc1c6;
+
+            font-size: 12px;
         }
 
 
-        /* CELULAR */
+        .pie-derecha {
+            display: flex;
 
-        @media (max-width: 500px) {
+            gap: 28px;
+        }
+
+
+        .pie a {
+            color: #bdc1c6;
+
+            text-decoration: none;
+        }
+
+
+        .pie a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
 
             body {
-                padding: 12px;
+                padding: 15px;
             }
 
-            .contenedor {
-                padding: 35px 25px 30px;
 
-                border-radius: 24px;
+            .tarjeta {
+                min-height: auto;
+
+                display: block;
+
+                padding: 32px 25px;
+
+                border-radius: 22px;
             }
+
+
+            .izquierda {
+                margin-bottom: 38px;
+            }
+
+
+            .logo {
+                margin-bottom: 25px;
+            }
+
+
+            h1 {
+                font-size: 30px;
+            }
+
+
+            .descripcion {
+                margin-top: 14px;
+            }
+
+
+            .derecha {
+                display: block;
+            }
+
+
+            .acciones {
+                margin-top: 35px;
+
+                justify-content: space-between;
+            }
+
+
+            .pie {
+                padding-left: 8px;
+
+                padding-right: 8px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 18px;
+            }
+
+
+            .pie-derecha {
+                gap: 20px;
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR PEQUEÑO
+        ========================= */
+
+        @media (max-width: 400px) {
 
             h1 {
                 font-size: 27px;
             }
 
-            .subtitulo {
-                font-size: 15px;
+
+            .tarjeta {
+                padding: 28px 20px;
             }
+
+
+            .acciones {
+                gap: 15px;
+            }
+
         }
 
     </style>
@@ -268,102 +508,180 @@
 
 <body>
 
-    <div class="contenedor">
 
-        <!-- LOGO -->
-        <div class="logo">
-            A
-        </div>
+    <div class="pagina">
 
 
-        <!-- TITULO -->
+        <!-- =====================
+             TARJETA
+        ====================== -->
 
-        <h1>
-            Accede a tu cuenta
-        </h1>
-
-
-        <!-- SUBTITULO -->
-
-        <div class="subtitulo">
-            Usa tu correo electrónico y contraseña
-        </div>
+        <div class="tarjeta">
 
 
-        <!-- FORMULARIO -->
+            <!-- =====================
+                 IZQUIERDA
+            ====================== -->
 
-        <form id="formulario">
+            <div class="izquierda">
 
-            <!-- CORREO -->
 
-            <div class="campo">
+                <!-- LOGO -->
 
-                <label for="correo">
-                    Correo electrónico
-                </label>
+                <div class="logo">
+                    A
+                </div>
 
-                <input
-                    type="email"
-                    id="correo"
-                    placeholder="Correo electrónico"
-                    autocomplete="username"
-                    required
-                >
+
+                <!-- TITULO -->
+
+                <h1>
+                    Accede a tu cuenta
+                </h1>
+
+
+                <!-- DESCRIPCION -->
+
+                <div class="descripcion">
+                    Usa tu correo electrónico y contraseña
+                    para acceder a tu cuenta.
+                </div>
+
 
             </div>
 
 
-            <!-- CONTRASEÑA -->
 
-            <div class="campo">
+            <!-- =====================
+                 DERECHA
+            ====================== -->
 
-                <label for="contrasena">
-                    Contraseña
-                </label>
+            <div class="derecha">
 
-                <input
-                    type="password"
-                    id="contrasena"
-                    placeholder="Contraseña"
-                    autocomplete="current-password"
-                    required
-                >
+
+                <form id="formulario">
+
+
+                    <!-- CORREO -->
+
+                    <div class="campo">
+
+                        <input
+                            type="email"
+                            id="correo"
+                            placeholder=" "
+                            autocomplete="username"
+                            required
+                        >
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="campo">
+
+                        <input
+                            type="password"
+                            id="contrasena"
+                            placeholder=" "
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <label for="contrasena">
+                            Contraseña
+                        </label>
+
+                    </div>
+
+
+                    <!-- RECUPERAR -->
+
+                    <a
+                        href="#"
+                        class="recuperar"
+                        id="recuperar"
+                    >
+                        ¿Olvidaste tu contraseña?
+                    </a>
+
+
+                    <!-- ACCIONES -->
+
+                    <div class="acciones">
+
+                        <a
+                            href="#"
+                            class="crear"
+                            id="crearCuenta"
+                        >
+                            Crear cuenta
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            id="botonIngresar"
+                        >
+                            Siguiente
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+
+                <!-- MENSAJE -->
+
+                <div id="mensaje"></div>
+
 
             </div>
 
-
-            <!-- ENLACE -->
-
-            <a
-                href="#"
-                class="enlace"
-                onclick="recuperarContrasena(event)"
-            >
-                ¿Olvidaste tu contraseña?
-            </a>
+        </div>
 
 
-            <!-- BOTÓN -->
 
-            <button type="submit">
-                Siguiente
-            </button>
-
-        </form>
-
-
-        <!-- MENSAJE -->
-
-        <div id="mensaje"></div>
-
-
-        <!-- PIE -->
+        <!-- =====================
+             PIE DE PÁGINA
+        ====================== -->
 
         <div class="pie">
-            Acceso seguro
+
+
+            <div>
+                Español (Latinoamérica)
+            </div>
+
+
+            <div class="pie-derecha">
+
+                <a href="#">
+                    Ayuda
+                </a>
+
+                <a href="#">
+                    Privacidad
+                </a>
+
+                <a href="#">
+                    Condiciones
+                </a>
+
+            </div>
+
+
         </div>
 
+
     </div>
+
 
 
     <script>
@@ -374,19 +692,33 @@
         const mensaje =
             document.getElementById("mensaje");
 
+        const boton =
+            document.getElementById("botonIngresar");
+
+
+
+        /* =========================
+           INICIO DE SESIÓN
+        ========================= */
 
         formulario.addEventListener(
             "submit",
-            async function(event) {
+            function(event) {
 
                 event.preventDefault();
 
 
                 const correo =
-                    document.getElementById("correo").value.trim();
+                    document
+                    .getElementById("correo")
+                    .value
+                    .trim();
+
 
                 const contrasena =
-                    document.getElementById("contrasena").value;
+                    document
+                    .getElementById("contrasena")
+                    .value;
 
 
                 if (!correo || !contrasena) {
@@ -398,51 +730,78 @@
                 }
 
 
-                /*
-                    IMPORTANTE:
+                boton.disabled = true;
 
-                    No enviamos la contraseña a Google Sheets.
-
-                    La autenticación debe hacerse mediante
-                    un sistema seguro como Firebase Authentication.
-
-                    Después podemos conectar el resultado
-                    de la autenticación con tu Google Sheets.
-                */
-
-
-                mensaje.textContent =
-                    "Preparando acceso...";
+                boton.textContent =
+                    "Comprobando...";
 
 
                 /*
-                    TEMPORALMENTE:
+                    AQUÍ SE CONECTARÁ EL SISTEMA
+                    DE AUTENTICACIÓN SEGURO.
 
-                    Esta parte se reemplazará por la
-                    autenticación segura.
+                    La contraseña NO se envía
+                    a Google Sheets.
                 */
+
 
                 setTimeout(function() {
 
                     mensaje.textContent =
-                        "Sistema de acceso listo para configurar.";
+                        "El sistema de acceso está listo para configurar.";
 
-                }, 700);
+                    boton.disabled = false;
+
+                    boton.textContent =
+                        "Siguiente";
+
+                }, 800);
 
             }
         );
 
 
-        function recuperarContrasena(event) {
 
-            event.preventDefault();
+        /* =========================
+           RECUPERAR CONTRASEÑA
+        ========================= */
 
-            mensaje.textContent =
-                "La recuperación de contraseña se configurará posteriormente.";
+        document
+        .getElementById("recuperar")
+        .addEventListener(
+            "click",
+            function(event) {
 
-        }
+                event.preventDefault();
+
+                mensaje.textContent =
+                    "La recuperación de contraseña se configurará próximamente.";
+
+            }
+        );
+
+
+
+        /* =========================
+           CREAR CUENTA
+        ========================= */
+
+        document
+        .getElementById("crearCuenta")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                mensaje.textContent =
+                    "El registro de nuevas cuentas se configurará próximamente.";
+
+            }
+        );
 
     </script>
+
 
 </body>
 </html>
