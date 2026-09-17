@@ -39,15 +39,19 @@
         }
 
 
-        /* =========================
-           CONTENEDOR PRINCIPAL
-        ========================= */
+        /* =================================
+           PAGINA
+        ================================= */
 
         .pagina {
             width: 100%;
             max-width: 920px;
         }
 
+
+        /* =================================
+           TARJETA
+        ================================= */
 
         .tarjeta {
             width: 100%;
@@ -67,9 +71,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            COLUMNA IZQUIERDA
-        ========================= */
+        ================================= */
 
         .izquierda {
             display: flex;
@@ -80,7 +84,9 @@
         }
 
 
-        /* LOGO PROPIO */
+        /* =================================
+           LOGO TEMPORAL
+        ================================= */
 
         .logo {
             width: 52px;
@@ -113,7 +119,9 @@
         }
 
 
-        /* TITULO */
+        /* =================================
+           TITULOS
+        ================================= */
 
         h1 {
             margin: 0;
@@ -130,8 +138,6 @@
         }
 
 
-        /* TEXTO */
-
         .descripcion {
             margin-top: 18px;
 
@@ -143,9 +149,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            COLUMNA DERECHA
-        ========================= */
+        ================================= */
 
         .derecha {
             display: flex;
@@ -156,9 +162,23 @@
         }
 
 
-        /* =========================
+        /* =================================
+           PASOS
+        ================================= */
+
+        .paso {
+            width: 100%;
+        }
+
+
+        .oculto {
+            display: none;
+        }
+
+
+        /* =================================
            CAMPOS
-        ========================= */
+        ================================= */
 
         .campo {
             position: relative;
@@ -201,9 +221,6 @@
             border: 2px solid #8ab4f8;
 
             padding: 14px;
-
-            box-shadow:
-                0 0 0 1px rgba(138, 180, 248, 0.08);
         }
 
 
@@ -212,7 +229,9 @@
         }
 
 
-        /* LABEL FLOTANTE */
+        /* =================================
+           LABEL FLOTANTE
+        ================================= */
 
         .campo label {
             position: absolute;
@@ -248,14 +267,99 @@
         }
 
 
-        /* =========================
-           OLVIDASTE CONTRASEÑA
-        ========================= */
+        /* =================================
+           CUENTA SELECCIONADA
+        ================================= */
 
-        .recuperar {
+        .cuenta {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 7px 12px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #777;
+
+            border-radius: 20px;
+
+            color: #e8eaed;
+
+            font-size: 14px;
+
+            max-width: 100%;
+        }
+
+
+        .icono-cuenta {
+            width: 22px;
+            height: 22px;
+
+            border-radius: 50%;
+
+            border: 1px solid #aaa;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+        }
+
+
+        #correoMostrado {
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+
+        /* =================================
+           MOSTRAR CONTRASEÑA
+        ================================= */
+
+        .mostrar {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: -8px;
+
+            color: #e8eaed;
+
+            font-size: 14px;
+
+            cursor: pointer;
+        }
+
+
+        .mostrar input {
+            width: 18px;
+            height: 18px;
+
+            accent-color: #8ab4f8;
+
+            cursor: pointer;
+        }
+
+
+        /* =================================
+           ENLACES
+        ================================= */
+
+        .enlace {
             display: inline-block;
 
-            margin-top: -7px;
+            margin-top: 22px;
 
             color: #8ab4f8;
 
@@ -264,19 +368,17 @@
             font-size: 14px;
 
             font-weight: 500;
-
-            cursor: pointer;
         }
 
 
-        .recuperar:hover {
+        .enlace:hover {
             text-decoration: underline;
         }
 
 
-        /* =========================
-           PARTE INFERIOR
-        ========================= */
+        /* =================================
+           ACCIONES
+        ================================= */
 
         .acciones {
             margin-top: 48px;
@@ -307,9 +409,9 @@
         }
 
 
-        /* =========================
-           BOTÓN
-        ========================= */
+        /* =================================
+           BOTON
+        ================================= */
 
         button {
             border: none;
@@ -353,9 +455,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            MENSAJE
-        ========================= */
+        ================================= */
 
         #mensaje {
             margin-top: 22px;
@@ -368,9 +470,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            PIE
-        ========================= */
+        ================================= */
 
         .pie {
             display: flex;
@@ -406,9 +508,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            CELULAR
-        ========================= */
+        ================================= */
 
         @media (max-width: 700px) {
 
@@ -480,9 +582,9 @@
         }
 
 
-        /* =========================
+        /* =================================
            CELULAR PEQUEÑO
-        ========================= */
+        ================================= */
 
         @media (max-width: 400px) {
 
@@ -512,38 +614,41 @@
     <div class="pagina">
 
 
-        <!-- =====================
-             TARJETA
-        ====================== -->
+        <!-- =================================
+             TARJETA PRINCIPAL
+        ================================= -->
 
         <div class="tarjeta">
 
 
-            <!-- =====================
+            <!-- =================================
                  IZQUIERDA
-            ====================== -->
+            ================================= -->
 
             <div class="izquierda">
 
 
-                <!-- LOGO -->
+                <!-- LOGO TEMPORAL -->
 
                 <div class="logo">
-                    G
+                    A
                 </div>
 
 
                 <!-- TITULO -->
 
-                <h1>
+                <h1 id="titulo">
                     Accede a tu cuenta
                 </h1>
 
 
                 <!-- DESCRIPCION -->
 
-                <div class="descripcion">
-                    Usa tu Cuenta de Google.
+                <div
+                    class="descripcion"
+                    id="descripcion"
+                >
+                    Usa tu correo electrónico para continuar.
                 </div>
 
 
@@ -551,89 +656,169 @@
 
 
 
-            <!-- =====================
+            <!-- =================================
                  DERECHA
-            ====================== -->
+            ================================= -->
 
             <div class="derecha">
 
 
-                <form id="formulario">
+                <!-- =================================
+                     PASO 1
+                ================================= -->
+
+                <div
+                    id="paso1"
+                    class="paso"
+                >
+
+                    <form id="formularioCorreo">
+
+                        <div class="campo">
+
+                            <input
+                                type="email"
+                                id="correo"
+                                placeholder=" "
+                                autocomplete="username"
+                                required
+                            >
+
+                            <label for="correo">
+                                Correo electrónico
+                            </label>
+
+                        </div>
 
 
-                    <!-- CORREO -->
+                        <div class="acciones">
 
-                    <div class="campo">
+                            <a
+                                href="#"
+                                class="crear"
+                                id="crearCuenta1"
+                            >
+                                Crear cuenta
+                            </a>
 
-                        <input
-                            type="email"
-                            id="correo"
-                            placeholder=" "
-                            autocomplete="username"
-                            required
-                        >
 
-                        <label for="correo">
-                            Correo electrónico o teléfono
-                        </label>
+                            <button
+                                type="submit"
+                                id="botonCorreo"
+                            >
+                                Siguiente
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- =================================
+                     PASO 2
+                ================================= -->
+
+                <div
+                    id="paso2"
+                    class="paso oculto"
+                >
+
+
+                    <!-- CUENTA -->
+
+                    <div class="cuenta">
+
+                        <div class="icono-cuenta">
+                            👤
+                        </div>
+
+                        <span id="correoMostrado"></span>
+
+                        <span>
+                            ▾
+                        </span>
 
                     </div>
 
 
                     <!-- CONTRASEÑA -->
 
-                    <div class="campo">
+                    <form id="formularioContrasena">
 
-                        <input
-                            type="password"
-                            id="contrasena"
-                            placeholder=" "
-                            autocomplete="current-password"
-                            required
-                        >
 
-                        <label for="contrasena">
-                            Contraseña
+                        <div class="campo">
+
+                            <input
+                                type="password"
+                                id="contrasena"
+                                placeholder=" "
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <label for="contrasena">
+                                Contraseña
+                            </label>
+
+                        </div>
+
+
+                        <!-- MOSTRAR CONTRASEÑA -->
+
+                        <label class="mostrar">
+
+                            <input
+                                type="checkbox"
+                                id="mostrarContrasena"
+                            >
+
+                            <span>
+                                Mostrar contraseña
+                            </span>
+
                         </label>
 
-                    </div>
 
-
-                    <!-- RECUPERAR -->
-
-                    <a
-                        href="#"
-                        class="recuperar"
-                        id="recuperar"
-                    >
-                        ¿Olvidaste tu contraseña?
-                    </a>
-
-
-                    <!-- ACCIONES -->
-
-                    <div class="acciones">
+                        <!-- RECUPERAR -->
 
                         <a
                             href="#"
-                            class="crear"
-                            id="crearCuenta"
+                            class="enlace"
+                            id="recuperar"
                         >
-                            Crear cuenta
+                            ¿Olvidaste la contraseña?
                         </a>
 
 
-                        <button
-                            type="submit"
-                            id="botonIngresar"
-                        >
-                            Siguiente
-                        </button>
+                        <!-- ACCIONES -->
 
-                    </div>
+                        <div class="acciones">
+
+                            <a
+                                href="#"
+                                class="crear"
+                                id="volver"
+                            >
+                                Atrás
+                            </a>
 
 
-                </form>
+                            <button
+                                type="submit"
+                                id="botonContrasena"
+                            >
+                                Siguiente
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
 
 
                 <!-- MENSAJE -->
@@ -647,9 +832,9 @@
 
 
 
-        <!-- =====================
-             PIE DE PÁGINA
-        ====================== -->
+        <!-- =================================
+             PIE
+        ================================= -->
 
         <div class="pie">
 
@@ -685,73 +870,227 @@
 
     <script>
 
-        const formulario =
-            document.getElementById("formulario");
+        /* =================================
+           ELEMENTOS
+        ================================= */
+
+        const paso1 =
+            document.getElementById("paso1");
+
+        const paso2 =
+            document.getElementById("paso2");
+
+        const correo =
+            document.getElementById("correo");
+
+        const correoMostrado =
+            document.getElementById("correoMostrado");
+
+        const contrasena =
+            document.getElementById("contrasena");
 
         const mensaje =
             document.getElementById("mensaje");
 
-        const boton =
-            document.getElementById("botonIngresar");
+        const titulo =
+            document.getElementById("titulo");
+
+        const descripcion =
+            document.getElementById("descripcion");
+
+        const botonCorreo =
+            document.getElementById("botonCorreo");
+
+        const botonContrasena =
+            document.getElementById("botonContrasena");
 
 
 
-        /* =========================
-           INICIO DE SESIÓN
-        ========================= */
+        /* =================================
+           PASO 1 → PASO 2
+        ================================= */
 
-        formulario.addEventListener(
+        document
+        .getElementById("formularioCorreo")
+        .addEventListener(
             "submit",
             function(event) {
 
                 event.preventDefault();
 
 
-                const correo =
-                    document
-                    .getElementById("correo")
-                    .value
-                    .trim();
+                const correoIngresado =
+                    correo.value.trim();
 
 
-                const contrasena =
-                    document
-                    .getElementById("contrasena")
-                    .value;
-
-
-                if (!correo || !contrasena) {
+                if (!correoIngresado) {
 
                     mensaje.textContent =
-                        "Completa todos los campos.";
+                        "Ingresa tu correo electrónico.";
 
                     return;
                 }
 
 
-                boton.disabled = true;
+                /* Mostrar correo en segunda pantalla */
 
-                boton.textContent =
-                    "Comprobando...";
+                correoMostrado.textContent =
+                    correoIngresado;
+
+
+                /* Cambiar contenido izquierdo */
+
+                titulo.textContent =
+                    "Te damos la bienvenida";
+
+
+                descripcion.textContent =
+                    "Ingresa tu contraseña para continuar.";
+
+
+                /* Ocultar paso 1 */
+
+                paso1.classList.add("oculto");
+
+
+                /* Mostrar paso 2 */
+
+                paso2.classList.remove("oculto");
+
+
+                /* Limpiar mensaje */
+
+                mensaje.textContent = "";
+
+
+                /* Enfocar contraseña */
+
+                setTimeout(function() {
+
+                    contrasena.focus();
+
+                }, 100);
+
+            }
+        );
+
+
+
+        /* =================================
+           MOSTRAR / OCULTAR CONTRASEÑA
+        ================================= */
+
+        document
+        .getElementById("mostrarContrasena")
+        .addEventListener(
+            "change",
+            function() {
+
+                if (this.checked) {
+
+                    contrasena.type =
+                        "text";
+
+                } else {
+
+                    contrasena.type =
+                        "password";
+
+                }
+
+            }
+        );
+
+
+
+        /* =================================
+           VOLVER AL CORREO
+        ================================= */
+
+        document
+        .getElementById("volver")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+
+                paso2.classList.add("oculto");
+
+                paso1.classList.remove("oculto");
+
+
+                titulo.textContent =
+                    "Accede a tu cuenta";
+
+
+                descripcion.textContent =
+                    "Usa tu correo electrónico para continuar.";
+
+
+                mensaje.textContent = "";
+
+
+                contrasena.value = "";
+
+
+                correo.focus();
+
+            }
+        );
+
+
+
+        /* =================================
+           SEGUNDO PASO
+        ================================= */
+
+        document
+        .getElementById("formularioContrasena")
+        .addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                if (!contrasena.value) {
+
+                    mensaje.textContent =
+                        "Ingresa tu contraseña.";
+
+                    return;
+                }
 
 
                 /*
-                    AQUÍ SE CONECTARÁ EL SISTEMA
-                    DE AUTENTICACIÓN SEGURO.
+                    AQUÍ NO SE ENVÍA LA CONTRASEÑA
+                    A GOOGLE SHEETS.
 
-                    La contraseña NO se envía
-                    a Google Sheets.
+                    La autenticación real deberá
+                    conectarse posteriormente a un
+                    servicio seguro de autenticación.
                 */
+
+
+                botonContrasena.disabled =
+                    true;
+
+
+                botonContrasena.textContent =
+                    "Comprobando...";
 
 
                 setTimeout(function() {
 
                     mensaje.textContent =
-                        "El sistema de acceso está listo para configurar.";
+                        "El sistema de autenticación está pendiente de configurar.";
 
-                    boton.disabled = false;
+                    botonContrasena.disabled =
+                        false;
 
-                    boton.textContent =
+                    botonContrasena.textContent =
                         "Siguiente";
 
                 }, 800);
@@ -761,9 +1100,9 @@
 
 
 
-        /* =========================
+        /* =================================
            RECUPERAR CONTRASEÑA
-        ========================= */
+        ================================= */
 
         document
         .getElementById("recuperar")
@@ -773,34 +1112,35 @@
 
                 event.preventDefault();
 
+
                 mensaje.textContent =
-                    "La recuperación de contraseña se configurará próximamente.";
+                    "La recuperación de contraseña se configurará posteriormente.";
 
             }
         );
 
 
 
-        /* =========================
+        /* =================================
            CREAR CUENTA
-        ========================= */
+        ================================= */
 
         document
-        .getElementById("crearCuenta")
+        .getElementById("crearCuenta1")
         .addEventListener(
             "click",
             function(event) {
 
                 event.preventDefault();
 
+
                 mensaje.textContent =
-                    "El registro de nuevas cuentas se configurará próximamente.";
+                    "El registro de cuentas se configurará posteriormente.";
 
             }
         );
 
     </script>
-
 
 </body>
 </html>
