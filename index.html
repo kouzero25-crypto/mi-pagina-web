@@ -15,7 +15,7 @@
     }
 
     body {
-        background-color: #202124; /* Gris Google original */
+        background-color: #202124; 
         font-family: Roboto, Arial, sans-serif;
         color: #e3e3e3;
         min-height: 100vh;
@@ -35,16 +35,16 @@
     }
 
     .tarjeta-login {
-        background-color: #0f0f0f; /* Fondo interno negro/gris muy oscuro */
+        background-color: #0f0f0f; 
         border-radius: 28px;
         padding: 40px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 48px;
-        min-height: 420px;
+        min-height: 422px; /* Altura exacta fija */
     }
 
-    /* Sección Izquierda (Textos estáticos) */
+    /* Sección Izquierda */
     .seccion-izquierda {
         display: flex;
         flex-direction: column;
@@ -74,16 +74,15 @@
         font-weight: 400;
     }
 
-    /* Sección Derecha (Formulario e Inputs) */
+    /* Sección Derecha (CORREGIDA) */
     .seccion-derecha {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 10px;
     }
 
     /* =====================================================
-       INPUT FLOTANTE (ESTILO ORIGINAL DE GOOGLE)
+       INPUT FLOTANTE
     ===================================================== */
     .campo-contenedor {
         position: relative;
@@ -110,7 +109,7 @@
 
     .campo-contenedor input:focus {
         border: 2px solid #a8c7fa;
-        padding: 15px; /* Compensa el ancho del borde */
+        padding: 15px; 
     }
 
     .campo-contenedor label {
@@ -125,7 +124,6 @@
         transition: 0.15s ease-out;
     }
 
-    /* Efecto cuando el input se enfoca o tiene texto */
     .campo-contenedor input:focus + label,
     .campo-contenedor input:not(:placeholder-shown) + label {
         top: -10px;
@@ -135,7 +133,7 @@
     }
 
     /* =====================================================
-       ENLACES Y TEXTOS INFORMATIVOS
+       ENLACES Y TEXTOS
     ===================================================== */
     .enlace-azul {
         color: #a8c7fa;
@@ -158,15 +156,14 @@
     }
 
     /* =====================================================
-       BOTONES Y ACCIONES
+       BLOQUE DE ACCIONES (EMPUJADO AL FONDO)
     ===================================================== */
     .bloque-acciones {
-        margin-top: auto; /* Empuja las acciones al fondo del bloque */
+        margin-top: auto; /* Esto empuja los botones al fondo exacto de la tarjeta */
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 24px;
-        padding-top: 20px;
     }
 
     .btn-crear {
@@ -181,10 +178,10 @@
     }
 
     .btn-siguiente {
-        background-color: #a8c7fa; /* Celeste pastel exacto */
-        color: #041e49;            /* Texto oscuro marino */
+        background-color: #a8c7fa; 
+        color: #041e49;            
         border: none;
-        border-radius: 100px;      /* Redondeado estilo píldora */
+        border-radius: 100px;      
         height: 40px;
         padding: 0 24px;
         font-size: 14px;
@@ -198,7 +195,7 @@
     }
 
     /* =====================================================
-       FOOTER / PIE DE PÁGINA
+       FOOTER
     ===================================================== */
     .pie-pagina {
         width: 100%;
@@ -235,7 +232,7 @@
     }
 
     /* =====================================================
-       DISEÑO RESPONSIVO (MÓVILES)
+       DISEÑO RESPONSIVO
     ===================================================== */
     @media (max-width: 768px) {
         .tarjeta-login {
@@ -253,6 +250,10 @@
             margin-top: 24px;
         }
 
+        .bloque-acciones {
+            margin-top: 32px;
+        }
+
         .pie-pagina {
             flex-direction: column;
             align-items: flex-start;
@@ -265,12 +266,10 @@
 <body>
 
 <div class="contenedor">
-    <!-- TARJETA PRINCIPAL -->
     <div class="tarjeta-login">
         
         <!-- SECCIÓN IZQUIERDA -->
         <div class="seccion-izquierda">
-            <!-- Icono SVG oficial de la 'G' de Google -->
             <svg class="logo-google" viewBox="0 0 24 24" width="48" height="48">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                 <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -291,10 +290,11 @@
             <a href="#" class="enlace-azul">¿Olvidaste el correo electrónico?</a>
 
             <div class="texto-invitado">
-                ¿Esta no es tu computadora? Usa el modo de invitado para navegar de forma privada. 
+                ¿Esta no es tu computadora? Usa el modo de invitado para navegar de forma privada. <br>
                 <a href="#" class="enlace-azul">Más información para usar el modo de invitado</a>
             </div>
 
+            <!-- Aquí se aplica el truco -->
             <div class="bloque-acciones">
                 <a href="#" class="btn-crear">Crear cuenta</a>
                 <button class="btn-siguiente" type="button">Siguiente</button>
@@ -307,7 +307,7 @@
     <div class="pie-pagina">
         <div class="menu-idioma">
             <a href="#">Español (Latinoamérica)</a>
-            <span class="flecha-desplegable" color="#c4c7c5">▼</span>
+            <span class="flecha-desplegable">▼</span>
         </div>
         <div class="enlaces-legales">
             <a href="#">Ayuda</a>
