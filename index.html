@@ -26,17 +26,12 @@ body {
 
 body {
     min-height: 100vh;
-
     background: #1f2021;
-
     font-family: Arial, Helvetica, sans-serif;
-
-    color: #e8eaed;
-
+    color: #e3e3e3;
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 20px;
 }
 
@@ -47,7 +42,6 @@ body {
 
 .pagina {
     width: 100%;
-
     max-width: 920px;
 }
 
@@ -58,19 +52,12 @@ body {
 
 .tarjeta {
     width: 100%;
-
     height: 422px;
-
     background: #0f0f0f;
-
     border-radius: 27px;
-
     padding: 40px 36px;
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     column-gap: 66px;
 }
 
@@ -81,9 +68,7 @@ body {
 
 .izquierda {
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 }
 
@@ -94,11 +79,8 @@ body {
 
 .logo {
     width: 46px;
-
     height: 46px;
-
     object-fit: contain;
-
     margin-bottom: 26px;
 }
 
@@ -109,16 +91,11 @@ body {
 
 h1 {
     margin: 0;
-
     font-size: 36px;
-
     line-height: 1.2;
-
     font-weight: 400;
-
     letter-spacing: -0.6px;
-
-    color: #e8eaed;
+    color: #e3e3e3;
 }
 
 
@@ -127,13 +104,10 @@ h1 {
 ===================================================== */
 
 .descripcion {
-    margin-top: 18px;
-
+    margin-top: 14px;
     font-size: 16px;
-
     line-height: 1.5;
-
-    color: #bdc1c6;
+    color: #e3e3e3;
 }
 
 
@@ -143,11 +117,8 @@ h1 {
 
 .derecha {
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     padding-top: 8px;
 }
 
@@ -158,39 +129,28 @@ h1 {
 
 .campo {
     position: relative;
-
     width: 100%;
-
     margin-top: -1px;
 }
 
 .campo input {
     width: 100%;
-
     height: 56px;
-
     padding: 15px;
-
-    border: 1px solid #8a8d91;
-
+    border: 1px solid #8e918f;
     border-radius: 4px;
-
     background: transparent;
-
-    color: #e8eaed;
-
+    color: #e3e3e3;
     font-size: 16px;
-
     outline: none;
 }
 
 .campo input:hover {
-    border-color: #bdc1c6;
+    border-color: #c4c7c5;
 }
 
 .campo input:focus {
-    border: 2px solid #8ab4f8;
-
+    border: 2px solid #a8c7fa;
     padding: 14px;
 }
 
@@ -201,31 +161,21 @@ h1 {
 
 .campo label {
     position: absolute;
-
     left: 13px;
-
     top: 18px;
-
     padding: 0 5px;
-
-    color: #9aa0a6;
-
+    color: #c4c7c5;
     background: #0f0f0f;
-
     font-size: 16px;
-
     pointer-events: none;
-
     transition: 0.15s;
 }
 
 .campo input:focus + label,
 .campo input:not(:placeholder-shown) + label {
     top: -8px;
-
     font-size: 12px;
-
-    color: #8ab4f8;
+    color: #a8c7fa;
 }
 
 
@@ -235,15 +185,10 @@ h1 {
 
 .enlace {
     display: inline-block;
-
     margin-top: 11px;
-
-    color: #8ab4f8;
-
+    color: #a8c7fa;
     font-size: 14px;
-
     font-weight: 500;
-
     text-decoration: none;
 }
 
@@ -258,21 +203,15 @@ h1 {
 
 .informacion {
     margin-top: 43px;
-
     max-width: 395px;
-
-    color: #bdc1c6;
-
+    color: #c4c7c5;
     font-size: 14px;
-
     line-height: 1.5;
 }
 
 .informacion a {
-    color: #8ab4f8;
-
+    color: #a8c7fa;
     text-decoration: none;
-
     font-weight: 500;
 }
 
@@ -287,15 +226,10 @@ h1 {
 
 .acciones {
     width: 100%;
-
     margin-top: 42px;
-
     display: flex;
-
     justify-content: flex-end;
-
     align-items: center;
-
     gap: 28px;
 }
 
@@ -306,11 +240,8 @@ h1 {
 
 .crear {
     color: #a8c7fa;
-
     text-decoration: none;
-
     font-size: 14px;
-
     font-weight: 600;
 }
 
@@ -325,28 +256,19 @@ h1 {
 
 button {
     min-width: 108px;
-
     height: 40px;
-
     padding: 0 24px;
-
     border: none;
-
-    border-radius: 22px;
-
-    background: #a8c7fa;
-
-    color: #202124;
-
+    border-radius: 100px; /* Redondeado completo estilo píldora de Google */
+    background: #a8c7fa;  /* Azul pastel exacto */
+    color: #041e49;       /* Texto azul oscuro/negro */
     font-size: 14px;
-
     font-weight: 600;
-
     cursor: pointer;
 }
 
 button:hover {
-    background: #c1d6fa;
+    background: #b8d4ff;
 }
 
 button:active {
@@ -360,15 +282,10 @@ button:active {
 
 .demo {
     text-align: center;
-
     margin-top: 6px;
-
     color: #777b80;
-
     font-size: 9px;
-
     letter-spacing: 1px;
-
     user-select: none;
 }
 
@@ -379,27 +296,20 @@ button:active {
 
 .pie {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     padding: 20px 16px 0;
-
-    color: #bdc1c6;
-
+    color: #c4c7c5;
     font-size: 12px;
 }
 
 .pie-derecha {
     display: flex;
-
     gap: 28px;
 }
 
 .pie a {
-    color: #bdc1c6;
-
+    color: #c4c7c5;
     text-decoration: none;
 }
 
@@ -407,39 +317,10 @@ button:active {
     text-decoration: underline;
 }
 
-
-/* =====================================================
-   MENSAJE
-===================================================== */
-
-.mensaje {
-    position: fixed;
-
-    left: 50%;
-
-    bottom: 30px;
-
-    transform: translateX(-50%);
-
-    padding: 10px 15px;
-
-    border-radius: 6px;
-
-    background: #303134;
-
-    color: #e8eaed;
-
-    font-size: 13px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition: opacity .2s;
-}
-
-.mensaje.visible {
-    opacity: 1;
+.desplegable-idioma {
+    font-size: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
 }
 
 
@@ -448,20 +329,15 @@ button:active {
 ===================================================== */
 
 @media (max-width: 700px) {
-
     body {
         padding: 15px;
     }
 
     .tarjeta {
         height: auto;
-
         min-height: 500px;
-
         display: block;
-
         padding: 32px 25px;
-
         border-radius: 22px;
     }
 
@@ -491,19 +367,14 @@ button:active {
 
     .acciones {
         margin-top: 35px;
-
         justify-content: space-between;
     }
 
     .pie {
         padding-left: 8px;
-
         padding-right: 8px;
-
         flex-direction: column;
-
         align-items: flex-start;
-
         gap: 18px;
     }
 
@@ -518,7 +389,6 @@ button:active {
 ===================================================== */
 
 @media (max-width: 400px) {
-
     h1 {
         font-size: 27px;
     }
@@ -535,251 +405,65 @@ button:active {
 </style>
 </head>
 
-
 <body>
 
-
 <div class="pagina">
-
 
     <!-- =================================================
          TARJETA
     ================================================== -->
-
     <div class="tarjeta">
-
 
         <!-- =================================================
              IZQUIERDA
         ================================================== -->
-
         <div class="izquierda">
-
-
-            <!-- TU PNG -->
-
-            <img
-                src="google.png"
-                class="logo"
-                alt="Demo"
-            >
-
-
-            <h1>
-                Accede a tu cuenta
-            </h1>
-
-
-            <div class="descripcion">
-                Usa tu cuenta para continuar
-            </div>
-
-
+            <img src="google.png" class="logo" alt="Google">
+            <h1>Accede a tu cuenta</h1>
+            <div class="descripcion">Usa tu Cuenta de Google</div>
         </div>
-
 
         <!-- =================================================
              DERECHA
         ================================================== -->
-
         <div class="derecha">
-
-
             <div class="campo">
-
-                <input
-                    type="text"
-                    id="correo"
-                    placeholder=" "
-                    autocomplete="off"
-                >
-
-                <label for="correo">
-                    Correo electrónico o teléfono
-                </label>
-
+                <input type="text" id="correo" placeholder=" " autocomplete="off">
+                <label for="correo">Correo electrónico o teléfono</label>
             </div>
-
-
-            <a
-                href="#"
-                class="enlace"
-                onclick="mostrarMensaje(event)"
-            >
-                ¿Olvidaste el correo electrónico?
-            </a>
-
+            
+            <a href="#" class="enlace">¿Olvidaste el correo electrónico?</a>
 
             <div class="informacion">
-
-                ¿Esta no es tu computadora?
-                Usa el modo de invitado para
-                navegar de forma privada.
-
-                <a
-                    href="#"
-                    onclick="mostrarMensaje(event)"
-                >
-                    Más información para usar el modo de invitado
-                </a>
-
+                ¿Esta no es tu computadora? Usa el modo de invitado para navegar de forma privada. 
+                <a href="#">Más información para usar el modo de invitado</a>
             </div>
-
 
             <div class="acciones">
-
-                <a
-                    href="#"
-                    class="crear"
-                    onclick="mostrarMensaje(event)"
-                >
-                    Crear cuenta
-                </a>
-
-
-                <button
-                    type="button"
-                    onclick="continuar()"
-                >
-                    Siguiente
-                </button>
-
+                <a href="#" class="crear">Crear cuenta</a>
+                <button type="button">Siguiente</button>
             </div>
-
-
         </div>
 
     </div>
 
+    <div class="demo">DEMO</div>
 
     <!-- =================================================
-         DEMO PEQUEÑO
+         PIE DE PÁGINA
     ================================================== -->
-
-    <div class="demo">
-        DEMO
-    </div>
-
-
-    <!-- =================================================
-         PIE
-    ================================================== -->
-
     <div class="pie">
-
-
-        <div>
-            Español (Latinoamérica)
+        <div class="pie-izquierda">
+            <a href="#">Español (Latinoamérica) <span class="desplegable-idioma">▼</span></a>
         </div>
-
-
         <div class="pie-derecha">
-
-            <a href="#">
-                Ayuda
-            </a>
-
-            <a href="#">
-                Privacidad
-            </a>
-
-            <a href="#">
-                Condiciones
-            </a>
-
+            <a href="#">Ayuda</a>
+            <a href="#">Privacidad</a>
+            <a href="#">Condiciones</a>
         </div>
-
-
     </div>
 
 </div>
-
-
-<div
-    id="mensaje"
-    class="mensaje"
->
-</div>
-
-
-<script>
-
-/* =====================================================
-   CONTINUAR
-===================================================== */
-
-function continuar() {
-
-    const correo =
-        document
-        .getElementById("correo")
-        .value
-        .trim();
-
-    const mensaje =
-        document
-        .getElementById("mensaje");
-
-
-    if (correo === "") {
-
-        mensaje.textContent =
-            "Introduce un correo para continuar.";
-
-    } else {
-
-        mensaje.textContent =
-            "Esta es una demostración. No se envían datos.";
-
-    }
-
-
-    mensaje.classList.add("visible");
-
-
-    setTimeout(
-        function() {
-
-            mensaje.classList.remove("visible");
-
-        },
-        2500
-    );
-}
-
-
-/* =====================================================
-   MENSAJES
-===================================================== */
-
-function mostrarMensaje(event) {
-
-    event.preventDefault();
-
-
-    const mensaje =
-        document
-        .getElementById("mensaje");
-
-
-    mensaje.textContent =
-        "Esta opción pertenece únicamente a la demostración.";
-
-
-    mensaje.classList.add("visible");
-
-
-    setTimeout(
-        function() {
-
-            mensaje.classList.remove("visible");
-
-        },
-        2500
-    );
-}
-
-</script>
 
 </body>
 </html>
