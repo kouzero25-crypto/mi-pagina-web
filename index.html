@@ -1,1122 +1,1090 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Accede a tu cuenta</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-            background: #1f2021;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #e8eaed;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 40px 20px;
-        }
-
-        .pagina {
-            width: 100%;
-            max-width: 920px;
-        }
-
-        .tarjeta {
-            width: 100%;
-            min-height: 420px;
-
-            background: #0f0f0f;
-            border-radius: 28px;
-            padding: 40px 36px;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 70px;
-        }
-
-        .izquierda {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .logo {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 30px;
-            border-radius: 50%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 25px;
-            font-weight: bold;
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #4285f4 0%,
-                    #34a853 35%,
-                    #fbbc05 65%,
-                    #ea4335 100%
-                );
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 36px;
-            line-height: 1.2;
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            color: #e8eaed;
-        }
-
-        .descripcion {
-            margin-top: 18px;
-            font-size: 16px;
-            line-height: 1.5;
-            color: #bdc1c6;
-        }
-
-        .derecha {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .paso {
-            width: 100%;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .oculto {
-            display: none;
-        }
+<title>Accede a tu cuenta - Demo</title>
 
-        .campo {
-            position: relative;
-            margin-bottom: 8px;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        input {
-            width: 100%;
-            height: 56px;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
 
-            padding: 15px;
+body {
+    min-height: 100vh;
+    background: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e8eaed;
 
-            border-radius: 5px;
-            border: 1px solid #8a8d91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            background: transparent;
-            color: #e8eaed;
+    padding: 40px 20px;
+}
 
-            font-size: 16px;
-            outline: none;
+.pagina {
+    width: 100%;
+    max-width: 920px;
+}
 
-            transition:
-                border-color 0.2s,
-                box-shadow 0.2s;
-        }
+/* TARJETA */
 
-        input:hover {
-            border-color: #bdc1c6;
-        }
+.tarjeta {
+    width: 100%;
+    min-height: 420px;
 
-        input:focus {
-            border: 2px solid #8ab4f8;
-            padding: 14px;
-        }
+    background: #0f0f0f;
+    border-radius: 28px;
 
-        input::placeholder {
-            color: transparent;
-        }
+    padding: 40px 36px;
 
-        .campo label {
-            position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 70px;
+}
 
-            left: 13px;
-            top: 18px;
+/* IZQUIERDA */
 
-            padding: 0 5px;
+.izquierda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-            background: #0f0f0f;
-            color: #9aa0a6;
+/* LOGO */
 
-            font-size: 16px;
-            pointer-events: none;
+.logo {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 28px;
 
-            transition:
-                top 0.15s,
-                font-size 0.15s,
-                color 0.15s;
-        }
+    object-fit: contain;
+}
 
-        input:focus + label,
-        input:not(:placeholder-shown) + label {
-            top: -8px;
-            font-size: 12px;
-            color: #8ab4f8;
-        }
+/* TITULO */
 
-        /* =================================
-           ERROR DEL CORREO
-        ================================= */
+h1 {
+    margin: 0;
 
-        .error-correo {
-            display: none;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 400;
 
-            margin-top: 8px;
-            margin-left: 2px;
+    letter-spacing: -0.5px;
 
-            color: #f28b82;
-            font-size: 14px;
-            line-height: 1.4;
-        }
+    color: #e8eaed;
+}
 
-        .error-correo.visible {
-            display: block;
-        }
+/* DESCRIPCION */
 
-        .campo.error input {
-            border-color: #f28b82;
-        }
+.descripcion {
+    margin-top: 18px;
 
-        .campo.error input:focus {
-            border: 2px solid #f28b82;
-        }
+    font-size: 16px;
+    line-height: 1.5;
 
-        .campo.error label {
-            color: #f28b82;
-        }
+    color: #bdc1c6;
+}
 
-        /* =================================
-           CUENTA
-        ================================= */
+/* DERECHA */
 
-        .cuenta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+.derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-            padding: 7px 12px;
-            margin-bottom: 25px;
+.paso {
+    width: 100%;
+}
 
-            border: 1px solid #777;
-            border-radius: 20px;
+.oculto {
+    display: none;
+}
 
-            color: #e8eaed;
-            font-size: 14px;
+/* CAMPO */
 
-            max-width: 100%;
-        }
+.campo {
+    position: relative;
+    margin-bottom: 8px;
+}
 
-        .icono-cuenta {
-            width: 22px;
-            height: 22px;
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: 56px;
 
-            border-radius: 50%;
-            border: 1px solid #aaa;
+    padding: 15px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #8a8d91;
 
-            font-size: 12px;
-        }
+    background: transparent;
 
-        #correoMostrado {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+    color: #e8eaed;
 
-        /* =================================
-           CORREO DE BIENVENIDA
-        ================================= */
+    font-size: 16px;
 
-        .correo-bienvenida {
-            display: none;
-        }
+    outline: none;
 
-        .correo-bienvenida.visible {
-            display: block;
-        }
+    transition:
+        border-color .2s,
+        box-shadow .2s;
+}
 
-        .correo-bienvenida span {
-            display: block;
+input[type="text"]:hover,
+input[type="password"]:hover {
+    border-color: #bdc1c6;
+}
 
-            margin-top: 12px;
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 2px solid #8ab4f8;
+    padding: 14px;
+}
 
-            color: #e8eaed;
+input::placeholder {
+    color: transparent;
+}
 
-            font-size: 16px;
-            line-height: 1.4;
+/* LABEL */
 
-            word-break: break-word;
-        }
+.campo label {
+    position: absolute;
 
-        /* =================================
-           MOSTRAR CONTRASEÑA
-        ================================= */
+    left: 13px;
+    top: 18px;
 
-        .mostrar {
-            display: flex;
-            align-items: center;
+    padding: 0 5px;
 
-            gap: 10px;
-            margin-top: 12px;
+    background: #0f0f0f;
 
-            color: #e8eaed;
-            font-size: 14px;
+    color: #9aa0a6;
 
-            cursor: pointer;
-        }
+    font-size: 16px;
 
-        .mostrar input {
-            width: 18px;
-            height: 18px;
+    pointer-events: none;
 
-            accent-color: #8ab4f8;
-            cursor: pointer;
-        }
+    transition:
+        top .15s,
+        font-size .15s,
+        color .15s;
+}
 
-        /* =================================
-           ENLACES
-        ================================= */
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -8px;
 
-        .enlace {
-            display: inline-block;
+    font-size: 12px;
 
-            margin-top: 22px;
+    color: #8ab4f8;
+}
 
-            color: #8ab4f8;
-            text-decoration: none;
+/* ERROR */
 
-            font-size: 14px;
-            font-weight: 500;
-        }
+.error-correo {
+    display: none;
 
-        .enlace:hover {
-            text-decoration: underline;
-        }
+    margin-top: 8px;
+    margin-left: 2px;
 
-        /* =================================
-           ACCIONES
-        ================================= */
+    color: #f28b82;
 
-        .acciones {
-            margin-top: 48px;
+    font-size: 14px;
+    line-height: 1.4;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+.error-correo.visible {
+    display: block;
+}
 
-            gap: 28px;
-        }
+.campo.error input {
+    border-color: #f28b82;
+}
 
-        .crear {
-            color: #8ab4f8;
+.campo.error input:focus {
+    border: 2px solid #f28b82;
+}
 
-            text-decoration: none;
+.campo.error label {
+    color: #f28b82;
+}
 
-            font-size: 14px;
-            font-weight: bold;
-        }
+/* CUENTA */
 
-        .crear:hover {
-            text-decoration: underline;
-        }
+.cuenta {
+    display: inline-flex;
+    align-items: center;
 
-        /* =================================
-           BOTON
-        ================================= */
+    gap: 8px;
 
-        button {
-            border: none;
-            border-radius: 24px;
+    padding: 7px 12px;
+    margin-bottom: 25px;
 
-            padding: 13px 25px;
-            min-width: 108px;
+    border: 1px solid #777;
+    border-radius: 20px;
 
-            background: #a8c7fa;
-            color: #202124;
+    color: #e8eaed;
 
-            font-size: 14px;
-            font-weight: bold;
+    font-size: 14px;
 
-            cursor: pointer;
+    max-width: 100%;
+}
 
-            transition:
-                background 0.2s,
-                transform 0.1s;
-        }
+.icono-cuenta {
+    width: 22px;
+    height: 22px;
 
-        button:hover {
-            background: #c1d6fa;
-        }
+    border-radius: 50%;
+    border: 1px solid #aaa;
 
-        button:active {
-            transform: scale(0.97);
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+    font-size: 12px;
+}
 
-        /* =================================
-           MENSAJE
-        ================================= */
+#correoMostrado {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
-        #mensaje {
-            margin-top: 22px;
+/* CORREO BIENVENIDA */
 
-            min-height: 20px;
+.correo-bienvenida {
+    display: none;
+}
 
-            font-size: 14px;
-            color: #bdc1c6;
-        }
+.correo-bienvenida.visible {
+    display: block;
+}
 
-        /* =================================
-           PIE
-        ================================= */
+.correo-bienvenida span {
+    display: block;
 
-        .pie {
-            display: flex;
+    margin-top: 12px;
 
-            justify-content: space-between;
-            align-items: center;
+    color: #e8eaed;
 
-            padding: 20px 16px 0;
+    font-size: 16px;
+    line-height: 1.4;
 
-            color: #bdc1c6;
-            font-size: 12px;
-        }
+    word-break: break-word;
+}
 
-        .pie-derecha {
-            display: flex;
-            gap: 28px;
-        }
+/* MOSTRAR CONTRASEÑA */
 
-        .pie a {
-            color: #bdc1c6;
-            text-decoration: none;
-        }
+.mostrar {
+    display: flex;
+    align-items: center;
 
-        .pie a:hover {
-            text-decoration: underline;
-        }
+    gap: 10px;
 
-        /* =================================
-           CELULAR
-        ================================= */
+    margin-top: 12px;
 
-        @media (max-width: 700px) {
+    color: #e8eaed;
 
-            body {
-                padding: 15px;
-            }
+    font-size: 14px;
 
-            .tarjeta {
-                min-height: auto;
+    cursor: pointer;
+}
 
-                display: block;
+.mostrar input {
+    width: 18px;
+    height: 18px;
 
-                padding: 32px 25px;
+    accent-color: #8ab4f8;
 
-                border-radius: 22px;
-            }
+    cursor: pointer;
+}
 
-            .izquierda {
-                margin-bottom: 38px;
-            }
+/* ENLACES */
 
-            .logo {
-                margin-bottom: 25px;
-            }
+.enlace {
+    display: inline-block;
 
-            h1 {
-                font-size: 30px;
-            }
+    margin-top: 22px;
 
-            .descripcion {
-                margin-top: 14px;
-            }
+    color: #8ab4f8;
 
-            .derecha {
-                display: block;
-            }
+    text-decoration: none;
 
-            .acciones {
-                margin-top: 35px;
-                justify-content: space-between;
-            }
+    font-size: 14px;
+    font-weight: 500;
+}
 
-            .pie {
-                padding-left: 8px;
-                padding-right: 8px;
+.enlace:hover {
+    text-decoration: underline;
+}
 
-                flex-direction: column;
-                align-items: flex-start;
+/* ACCIONES */
 
-                gap: 18px;
-            }
+.acciones {
+    margin-top: 48px;
 
-            .pie-derecha {
-                gap: 20px;
-            }
-        }
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-        /* =================================
-           CELULAR PEQUEÑO
-        ================================= */
+    gap: 28px;
+}
 
-        @media (max-width: 400px) {
+/* BOTON SECUNDARIO */
 
-            h1 {
-                font-size: 27px;
-            }
+.crear {
+    color: #8ab4f8;
 
-            .tarjeta {
-                padding: 28px 20px;
-            }
+    text-decoration: none;
 
-            .acciones {
-                gap: 15px;
-            }
-        }
+    font-size: 14px;
+    font-weight: bold;
+}
 
-    </style>
+.crear:hover {
+    text-decoration: underline;
+}
+
+/* BOTON */
+
+button {
+    border: none;
+
+    border-radius: 24px;
+
+    padding: 13px 25px;
+
+    min-width: 108px;
+
+    background: #a8c7fa;
+
+    color: #202124;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background .2s,
+        transform .1s;
+}
+
+button:hover {
+    background: #c1d6fa;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* MENSAJE */
+
+#mensaje {
+    margin-top: 22px;
+
+    min-height: 20px;
+
+    font-size: 14px;
+
+    color: #bdc1c6;
+}
+
+/* AVISO DEMO */
+
+.aviso-demo {
+    margin-top: 16px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #5f6368;
+    border-radius: 8px;
+
+    color: #bdc1c6;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+/* PIE */
+
+.pie {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 16px 0;
+
+    color: #bdc1c6;
+
+    font-size: 12px;
+}
+
+.pie-derecha {
+    display: flex;
+
+    gap: 28px;
+}
+
+.pie a {
+    color: #bdc1c6;
+
+    text-decoration: none;
+}
+
+.pie a:hover {
+    text-decoration: underline;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .tarjeta {
+        min-height: auto;
+
+        display: block;
+
+        padding: 32px 25px;
+
+        border-radius: 22px;
+    }
+
+    .izquierda {
+        margin-bottom: 38px;
+    }
+
+    .logo {
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .descripcion {
+        margin-top: 14px;
+    }
+
+    .derecha {
+        display: block;
+    }
+
+    .acciones {
+        margin-top: 35px;
+
+        justify-content: space-between;
+    }
+
+    .pie {
+        padding-left: 8px;
+        padding-right: 8px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .pie-derecha {
+        gap: 20px;
+    }
+}
+
+/* CELULAR PEQUEÑO */
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .tarjeta {
+        padding: 28px 20px;
+    }
+
+    .acciones {
+        gap: 15px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="pagina">
+<div class="pagina">
 
-        <div class="tarjeta">
+    <div class="tarjeta">
 
-            <!-- =================================
-                 IZQUIERDA
-            ================================= -->
+        <!-- IZQUIERDA -->
 
-            <div class="izquierda">
+        <div class="izquierda">
 
-                <div class="logo">
-                    A
-                </div>
+            <!-- Logo utilizado únicamente como elemento visual -->
+            <img
+                src="google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png"
+                class="logo"
+                alt="Logo"
+            >
 
-                <h1 id="titulo">
-                    Accede a tu cuenta
-                </h1>
+            <h1 id="titulo">
+                Accede a tu cuenta
+            </h1>
 
-                <div
-                    class="descripcion"
-                    id="descripcion"
-                >
-                    Usa tu Cuenta de Google.
-                </div>
-
-                <!-- CORREO EN SEGUNDA PANTALLA -->
-
-                <div
-                    class="correo-bienvenida"
-                    id="correoBienvenida"
-                >
-                    <span id="correoBienvenidaTexto"></span>
-                </div>
-
+            <div
+                class="descripcion"
+                id="descripcion"
+            >
+                Usa tu Cuenta de Google.
             </div>
 
-
-            <!-- =================================
-                 DERECHA
-            ================================= -->
-
-            <div class="derecha">
-
-                <!-- =================================
-                     PASO 1
-                ================================= -->
-
-                <div
-                    id="paso1"
-                    class="paso"
-                >
-
-                    <form id="formularioCorreo">
-
-                        <div
-                            class="campo"
-                            id="campoCorreo"
-                        >
-
-                            <input
-                                type="text"
-                                id="correo"
-                                placeholder=" "
-                                autocomplete="username"
-                                required
-                            >
-
-                            <label for="correo">
-                                Correo electrónico o teléfono
-                            </label>
-
-                        </div>
-
-                        <!-- ERROR -->
-
-                        <div
-                            class="error-correo"
-                            id="errorCorreo"
-                        >
-                            No se pudo encontrar esta cuenta
-                        </div>
-
-
-                        <div class="acciones">
-
-                            <a
-                                href="#"
-                                class="crear"
-                                id="crearCuenta1"
-                            >
-                                Crear cuenta
-                            </a>
-
-                            <button
-                                type="submit"
-                                id="botonCorreo"
-                            >
-                                Siguiente
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-
-                <!-- =================================
-                     PASO 2
-                ================================= -->
-
-                <div
-                    id="paso2"
-                    class="paso oculto"
-                >
-
-                    <div class="cuenta">
-
-                        <div class="icono-cuenta">
-                            👤
-                        </div>
-
-                        <span id="correoMostrado"></span>
-
-                        <span>
-                            ▾
-                        </span>
-
-                    </div>
-
-
-                    <form id="formularioContrasena">
-
-                        <div class="campo">
-
-                            <input
-                                type="password"
-                                id="contrasena"
-                                placeholder=" "
-                                autocomplete="current-password"
-                                required
-                            >
-
-                            <label for="contrasena">
-                                Contraseña
-                            </label>
-
-                        </div>
-
-
-                        <label class="mostrar">
-
-                            <input
-                                type="checkbox"
-                                id="mostrarContrasena"
-                            >
-
-                            <span>
-                                Mostrar contraseña
-                            </span>
-
-                        </label>
-
-
-                        <a
-                            href="#"
-                            class="enlace"
-                            id="recuperar"
-                        >
-                            ¿Olvidaste la contraseña?
-                        </a>
-
-
-                        <div class="acciones">
-
-                            <a
-                                href="#"
-                                class="crear"
-                                id="volver"
-                            >
-                                Atrás
-                            </a>
-
-                            <button
-                                type="submit"
-                                id="botonContrasena"
-                            >
-                                Siguiente
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-
-                <!-- MENSAJE GENERAL -->
-
-                <div id="mensaje"></div>
-
+            <div
+                class="correo-bienvenida"
+                id="correoBienvenida"
+            >
+                <span id="correoBienvenidaTexto"></span>
             </div>
 
         </div>
 
 
-        <!-- =================================
-             PIE
-        ================================= -->
+        <!-- DERECHA -->
 
-        <div class="pie">
+        <div class="derecha">
 
-            <div>
-                Español (Latinoamérica)
+            <!-- PASO 1 -->
+
+            <div
+                id="paso1"
+                class="paso"
+            >
+
+                <form id="formularioCorreo">
+
+                    <div
+                        class="campo"
+                        id="campoCorreo"
+                    >
+
+                        <input
+                            type="text"
+                            id="correo"
+                            placeholder=" "
+                            autocomplete="off"
+                            required
+                        >
+
+                        <label for="correo">
+                            Correo electrónico o teléfono
+                        </label>
+
+                    </div>
+
+
+                    <div
+                        class="error-correo"
+                        id="errorCorreo"
+                    >
+                        Introduce una dirección de Gmail válida.
+                    </div>
+
+
+                    <div class="acciones">
+
+                        <a
+                            href="#"
+                            class="crear"
+                            id="crearCuenta1"
+                        >
+                            Crear cuenta
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="botonCorreo"
+                        >
+                            Siguiente
+                        </button>
+
+                    </div>
+
+                </form>
+
             </div>
 
-            <div class="pie-derecha">
 
-                <a href="#">
-                    Ayuda
-                </a>
+            <!-- PASO 2 -->
 
-                <a href="#">
-                    Privacidad
-                </a>
+            <div
+                id="paso2"
+                class="paso oculto"
+            >
 
-                <a href="#">
-                    Condiciones
-                </a>
+                <div class="cuenta">
+
+                    <div class="icono-cuenta">
+                        👤
+                    </div>
+
+                    <span id="correoMostrado"></span>
+
+                    <span>
+                        ▾
+                    </span>
+
+                </div>
+
+
+                <form id="formularioContrasena">
+
+                    <div class="campo">
+
+                        <input
+                            type="password"
+                            id="contrasena"
+                            placeholder=" "
+                            autocomplete="off"
+                        >
+
+                        <label for="contrasena">
+                            Contraseña
+                        </label>
+
+                    </div>
+
+
+                    <label class="mostrar">
+
+                        <input
+                            type="checkbox"
+                            id="mostrarContrasena"
+                        >
+
+                        <span>
+                            Mostrar contraseña
+                        </span>
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="enlace"
+                        id="recuperar"
+                    >
+                        ¿Olvidaste la contraseña?
+                    </a>
+
+
+                    <div class="acciones">
+
+                        <a
+                            href="#"
+                            class="crear"
+                            id="volver"
+                        >
+                            Atrás
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="botonContrasena"
+                        >
+                            Siguiente
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <div class="aviso-demo">
+                    Esta es una demostración de interfaz.
+                    No se envían ni almacenan contraseñas.
+                </div>
 
             </div>
+
+
+            <div id="mensaje"></div>
 
         </div>
 
     </div>
 
 
-    <script>
+    <!-- PIE -->
 
-        /* =================================
-           ELEMENTOS
-        ================================= */
+    <div class="pie">
 
-        const paso1 =
-            document.getElementById("paso1");
+        <div>
+            Español (Latinoamérica)
+        </div>
 
-        const paso2 =
-            document.getElementById("paso2");
+        <div class="pie-derecha">
 
-        const correo =
-            document.getElementById("correo");
+            <a href="#">
+                Ayuda
+            </a>
 
-        const correoMostrado =
-            document.getElementById("correoMostrado");
+            <a href="#">
+                Privacidad
+            </a>
 
-        const correoBienvenida =
-            document.getElementById("correoBienvenida");
+            <a href="#">
+                Condiciones
+            </a>
 
-        const correoBienvenidaTexto =
-            document.getElementById("correoBienvenidaTexto");
+        </div>
 
-        const campoCorreo =
-            document.getElementById("campoCorreo");
+    </div>
 
-        const errorCorreo =
-            document.getElementById("errorCorreo");
-
-        const contrasena =
-            document.getElementById("contrasena");
-
-        const mensaje =
-            document.getElementById("mensaje");
-
-        const titulo =
-            document.getElementById("titulo");
-
-        const descripcion =
-            document.getElementById("descripcion");
-
-        const botonContrasena =
-            document.getElementById("botonContrasena");
+</div>
 
 
-        /* =================================
-           VALIDAR Y NORMALIZAR CORREO
-        ================================= */
+<script>
 
-        function obtenerCorreoValido(valor) {
+/* =========================================
+   ELEMENTOS
+========================================= */
 
-            valor =
-                valor.trim().toLowerCase();
+const paso1 =
+    document.getElementById("paso1");
 
+const paso2 =
+    document.getElementById("paso2");
 
-            /*
-             * Si solamente escriben el nombre,
-             * agregamos automáticamente @gmail.com
-             */
+const correo =
+    document.getElementById("correo");
 
-            if (
-                valor !== "" &&
-                !valor.includes("@")
-            ) {
+const correoMostrado =
+    document.getElementById("correoMostrado");
 
-                valor =
-                    valor + "@gmail.com";
-            }
+const correoBienvenida =
+    document.getElementById("correoBienvenida");
 
+const correoBienvenidaTexto =
+    document.getElementById("correoBienvenidaTexto");
 
-            /*
-             * Validación de formato:
-             *
-             * nombre@gmail.com
-             *
-             * No acepta:
-             * nombre@
-             * nombre@gmail
-             * nombre@dsaml
-             * @gmail.com
-             */
+const campoCorreo =
+    document.getElementById("campoCorreo");
 
-            const patron =
-                /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+const errorCorreo =
+    document.getElementById("errorCorreo");
 
+const contrasena =
+    document.getElementById("contrasena");
 
-            if (!patron.test(valor)) {
+const mensaje =
+    document.getElementById("mensaje");
 
-                return null;
-            }
+const titulo =
+    document.getElementById("titulo");
+
+const descripcion =
+    document.getElementById("descripcion");
 
 
-            return valor;
+/* =========================================
+   VALIDAR Y NORMALIZAR CORREO
+========================================= */
+
+function obtenerCorreoValido(valor) {
+
+    valor =
+        valor.trim().toLowerCase();
+
+    /*
+       Si escribe solamente el nombre,
+       se agrega @gmail.com automáticamente.
+    */
+
+    if (
+        valor !== "" &&
+        !valor.includes("@")
+    ) {
+
+        valor =
+            valor + "@gmail.com";
+    }
+
+
+    /*
+       Formato permitido:
+
+       nombre@gmail.com
+
+       No permite:
+
+       nombre@
+       nombre@gmail
+       nombre@dsaml
+       @gmail.com
+    */
+
+    const patron =
+        /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+
+    if (!patron.test(valor)) {
+
+        return null;
+    }
+
+
+    return valor;
+}
+
+
+/* =========================================
+   QUITAR ERROR AL ESCRIBIR
+========================================= */
+
+correo.addEventListener(
+    "input",
+    function() {
+
+        campoCorreo.classList.remove("error");
+
+        errorCorreo.classList.remove("visible");
+
+        mensaje.textContent = "";
+
+    }
+);
+
+
+/* =========================================
+   PASO 1
+========================================= */
+
+document
+.getElementById("formularioCorreo")
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const correoFinal =
+            obtenerCorreoValido(
+                correo.value
+            );
+
+
+        if (!correoFinal) {
+
+            campoCorreo.classList.add("error");
+
+            errorCorreo.classList.add("visible");
+
+            correo.focus();
+
+            return;
         }
 
 
-        /* =================================
-           QUITAR ERROR MIENTRAS ESCRIBE
-        ================================= */
+        correo.value =
+            correoFinal;
 
-        correo.addEventListener(
-            "input",
+
+        correoMostrado.textContent =
+            correoFinal;
+
+
+        correoBienvenidaTexto.textContent =
+            correoFinal;
+
+
+        correoBienvenida.classList.add("visible");
+
+
+        titulo.textContent =
+            "Te damos la bienvenida";
+
+
+        descripcion.textContent =
+            "Ingresa tu contraseña para continuar.";
+
+
+        campoCorreo.classList.remove("error");
+
+        errorCorreo.classList.remove("visible");
+
+
+        paso1.classList.add("oculto");
+
+        paso2.classList.remove("oculto");
+
+        mensaje.textContent = "";
+
+
+        setTimeout(
             function() {
 
-                campoCorreo.classList.remove("error");
+                contrasena.focus();
 
-                errorCorreo.classList.remove("visible");
-
-                mensaje.textContent = "";
-
-            }
+            },
+            100
         );
 
+    }
+);
 
-        /* =================================
-           PASO 1 → PASO 2
-        ================================= */
 
-        document
-        .getElementById("formularioCorreo")
-        .addEventListener(
-            "submit",
-            function(event) {
+/* =========================================
+   MOSTRAR / OCULTAR CONTRASEÑA
+========================================= */
 
-                event.preventDefault();
+document
+.getElementById("mostrarContrasena")
+.addEventListener(
+    "change",
+    function() {
 
+        if (this.checked) {
 
-                const correoFinal =
-                    obtenerCorreoValido(
-                        correo.value
-                    );
+            contrasena.type =
+                "text";
 
+        } else {
 
-                /* =========================
-                   CORREO NO VÁLIDO
-                ========================= */
+            contrasena.type =
+                "password";
+        }
 
-                if (!correoFinal) {
+    }
+);
 
-                    campoCorreo.classList.add("error");
 
-                    errorCorreo.classList.add("visible");
+/* =========================================
+   VOLVER
+========================================= */
 
-                    correo.focus();
+document
+.getElementById("volver")
+.addEventListener(
+    "click",
+    function(event) {
 
-                    return;
-                }
+        event.preventDefault();
 
 
-                /* =========================
-                   CORREO CORRECTO
-                ========================= */
+        paso2.classList.add("oculto");
 
-                correo.value =
-                    correoFinal;
+        paso1.classList.remove("oculto");
 
 
-                /*
-                 * Mostrar el correo completo
-                 * en la segunda pantalla.
-                 */
+        titulo.textContent =
+            "Accede a tu cuenta";
 
-                correoMostrado.textContent =
-                    correoFinal;
 
+        descripcion.textContent =
+            "Usa tu Cuenta de Google.";
 
-                correoBienvenidaTexto.textContent =
-                    correoFinal;
 
+        correoBienvenida.classList.remove("visible");
 
-                correoBienvenida.classList.add("visible");
 
+        mensaje.textContent = "";
 
-                /* Cambiar contenido izquierdo */
 
-                titulo.textContent =
-                    "Te damos la bienvenida";
+        contrasena.value = "";
 
 
-                descripcion.textContent =
-                    "Ingresa tu contraseña para continuar.";
+        correo.focus();
 
+    }
+);
 
-                /* Ocultar error */
 
-                campoCorreo.classList.remove("error");
+/* =========================================
+   SEGUNDO PASO
+   SOLO DEMOSTRACIÓN
+========================================= */
 
-                errorCorreo.classList.remove("visible");
+document
+.getElementById("formularioContrasena")
+.addEventListener(
+    "submit",
+    function(event) {
 
+        event.preventDefault();
 
-                /* Ocultar paso 1 */
+        /*
+           No se envía ni se almacena
+           ninguna contraseña.
+        */
 
-                paso1.classList.add("oculto");
+        mensaje.textContent =
+            "Demostración: la contraseña no se envía ni se almacena.";
 
+    }
+);
 
-                /* Mostrar paso 2 */
 
-                paso2.classList.remove("oculto");
+/* =========================================
+   RECUPERAR
+========================================= */
 
+document
+.getElementById("recuperar")
+.addEventListener(
+    "click",
+    function(event) {
 
-                /* Limpiar mensaje */
+        event.preventDefault();
 
-                mensaje.textContent = "";
+        mensaje.textContent =
+            "Opción disponible únicamente en la demostración.";
 
+    }
+);
 
-                /* Enfocar contraseña */
 
-                setTimeout(function() {
+/* =========================================
+   CREAR CUENTA
+========================================= */
 
-                    contrasena.focus();
+document
+.getElementById("crearCuenta1")
+.addEventListener(
+    "click",
+    function(event) {
 
-                }, 100);
+        event.preventDefault();
 
-            }
-        );
+        mensaje.textContent =
+            "Opción disponible únicamente en la demostración.";
 
+    }
+);
 
-        /* =================================
-           MOSTRAR / OCULTAR CONTRASEÑA
-        ================================= */
-
-        document
-        .getElementById("mostrarContrasena")
-        .addEventListener(
-            "change",
-            function() {
-
-                if (this.checked) {
-
-                    contrasena.type =
-                        "text";
-
-                } else {
-
-                    contrasena.type =
-                        "password";
-
-                }
-
-            }
-        );
-
-
-        /* =================================
-           VOLVER AL CORREO
-        ================================= */
-
-        document
-        .getElementById("volver")
-        .addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-
-                paso2.classList.add("oculto");
-
-                paso1.classList.remove("oculto");
-
-
-                titulo.textContent =
-                    "Accede a tu cuenta";
-
-
-                descripcion.textContent =
-                    "Usa tu correo electrónico para continuar.";
-
-
-                correoBienvenida.classList.remove("visible");
-
-
-                mensaje.textContent = "";
-
-
-                contrasena.value = "";
-
-
-                correo.focus();
-
-            }
-        );
-
-
-        /* =================================
-           SEGUNDO PASO
-        ================================= */
-
-        document
-        .getElementById("formularioContrasena")
-        .addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                if (!contrasena.value) {
-
-                    mensaje.textContent =
-                        "Ingresa tu contraseña.";
-
-                    return;
-                }
-
-
-                botonContrasena.disabled =
-                    true;
-
-
-                botonContrasena.textContent =
-                    "Comprobando...";
-
-
-                setTimeout(function() {
-
-                    mensaje.textContent =
-                        "El sistema de autenticación está pendiente de configurar.";
-
-                    botonContrasena.disabled =
-                        false;
-
-                    botonContrasena.textContent =
-                        "Siguiente";
-
-                }, 800);
-
-            }
-        );
-
-
-        /* =================================
-           RECUPERAR CONTRASEÑA
-        ================================= */
-
-        document
-        .getElementById("recuperar")
-        .addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-
-                mensaje.textContent =
-                    "La recuperación de contraseña se configurará posteriormente.";
-
-            }
-        );
-
-
-        /* =================================
-           CREAR CUENTA
-        ================================= */
-
-        document
-        .getElementById("crearCuenta1")
-        .addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-
-                mensaje.textContent =
-                    "El registro de cuentas se configurará posteriormente.";
-
-            }
-        );
-
-    </script>
+</script>
 
 </body>
 </html>
