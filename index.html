@@ -26,7 +26,7 @@ body {
 
 body {
     min-height: 100vh;
-    background: #1f2021;
+    background: #202124; /* Color de fondo exacto del modo oscuro de Google */
     font-family: Arial, Helvetica, sans-serif;
     color: #e3e3e3;
     display: flex;
@@ -202,7 +202,7 @@ h1 {
 ===================================================== */
 
 .informacion {
-    margin-top: 43px;
+    margin-top: 32px;
     max-width: 395px;
     color: #c4c7c5;
     font-size: 14px;
@@ -251,7 +251,7 @@ h1 {
 
 
 /* =====================================================
-   BOTON
+   BOTON (RÉPLICA EXACTA GOOGLE)
 ===================================================== */
 
 button {
@@ -259,9 +259,9 @@ button {
     height: 40px;
     padding: 0 24px;
     border: none;
-    border-radius: 100px; /* Redondeado completo estilo píldora de Google */
-    background: #a8c7fa;  /* Azul pastel exacto */
-    color: #041e49;       /* Texto azul oscuro/negro */
+    border-radius: 100px; /* Completamente redondo como la original */
+    background: #a8c7fa;  /* Azul pastel original */
+    color: #041e49;       /* Letras azul marino oscuro como la original */
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -291,7 +291,7 @@ button:active {
 
 
 /* =====================================================
-   PIE
+   PIE DE PÁGINA
 ===================================================== */
 
 .pie {
@@ -318,7 +318,7 @@ button:active {
 }
 
 .desplegable-idioma {
-    font-size: 10px;
+    font-size: 8px;
     margin-left: 5px;
     vertical-align: middle;
 }
@@ -383,25 +383,6 @@ button:active {
     }
 }
 
-
-/* =====================================================
-   CELULAR PEQUEÑO
-===================================================== */
-
-@media (max-width: 400px) {
-    h1 {
-        font-size: 27px;
-    }
-
-    .tarjeta {
-        padding: 28px 20px;
-    }
-
-    .acciones {
-        gap: 15px;
-    }
-}
-
 </style>
 </head>
 
@@ -409,23 +390,17 @@ button:active {
 
 <div class="pagina">
 
-    <!-- =================================================
-         TARJETA
-    ================================================== -->
+    <!-- TARJETA -->
     <div class="tarjeta">
 
-        <!-- =================================================
-             IZQUIERDA
-        ================================================== -->
+        <!-- IZQUIERDA -->
         <div class="izquierda">
             <img src="google.png" class="logo" alt="Google">
             <h1>Accede a tu cuenta</h1>
             <div class="descripcion">Usa tu Cuenta de Google</div>
         </div>
 
-        <!-- =================================================
-             DERECHA
-        ================================================== -->
+        <!-- DERECHA -->
         <div class="derecha">
             <div class="campo">
                 <input type="text" id="correo" placeholder=" " autocomplete="off">
@@ -449,9 +424,7 @@ button:active {
 
     <div class="demo">DEMO</div>
 
-    <!-- =================================================
-         PIE DE PÁGINA
-    ================================================== -->
+    <!-- PIE DE PÁGINA -->
     <div class="pie">
         <div class="pie-izquierda">
             <a href="#">Español (Latinoamérica) <span class="desplegable-idioma">▼</span></a>
